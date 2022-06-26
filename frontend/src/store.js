@@ -5,6 +5,7 @@ import { productListReducers,productDetailReducers } from './reducers/productRed
 import {cartReducer} from './reducers/cartReducers'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' 
+import { userLoginReducers} from './reducers/userReducers';
 
 const persistConfig = {
   key: 'root',
@@ -14,14 +15,20 @@ const persistConfig = {
 const reducer = combineReducers({
   productList:productListReducers,
   productDetails:productDetailReducers,
-  cart:cartReducer
+  cart:cartReducer,
+  userLogin:userLoginReducers,
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ?
-    JSON.parse(localStorage.getItem('cartItems')) : []
+  JSON.parse(localStorage.getItem('cartItems')) : []
+
+const userInfoFromStorage = localStorage.getItem('userInfo') ?
+  JSON.parse(localStorage.getItem('userInfo')) : null
 
 const initialState = {
-  cart:{cartItems:cartItemsFromStorage}
+  cart:{cartItems:cartItemsFromStorage},
+  userLogin:{userInfo:userInfoFromStorage}
+
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer)
