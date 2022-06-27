@@ -6,6 +6,7 @@ import {cartReducer} from './reducers/cartReducers'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' 
 import { userLoginReducers} from './reducers/userReducers';
+import {userRegisterReducers,userDetailsReducers,userUpdateProfileReducers} from './reducers/userReducers'
 
 const persistConfig = {
   key: 'root',
@@ -17,6 +18,9 @@ const reducer = combineReducers({
   productDetails:productDetailReducers,
   cart:cartReducer,
   userLogin:userLoginReducers,
+  userRegister:userRegisterReducers,
+  userDetails:userDetailsReducers,
+  userUpdateProfile:userUpdateProfileReducers,
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ?
@@ -25,11 +29,18 @@ const cartItemsFromStorage = localStorage.getItem('cartItems') ?
 const userInfoFromStorage = localStorage.getItem('userInfo') ?
   JSON.parse(localStorage.getItem('userInfo')) : null
 
-const initialState = {
-  cart:{cartItems:cartItemsFromStorage},
-  userLogin:{userInfo:userInfoFromStorage}
 
-};
+const shippingAddressFromStorage = localStorage.getItem('shippingAddress') ?
+  JSON.parse(localStorage.getItem('shippingAddress')) : {}
+
+
+const initialState = {
+  cart: {
+      cartItems: cartItemsFromStorage,
+      shippingAddress: shippingAddressFromStorage,
+  },
+  userLogin: { userInfo: userInfoFromStorage },
+}
 
 const persistedReducer = persistReducer(persistConfig, reducer)
 
