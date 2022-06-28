@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
-import { saveShippingAddress } from '../actions/cartActions'
 import CheckoutSteps from '../components/CheckoutSteps'
+import { saveShippingAddress } from '../actions/cartActions'
 
 function ShippingScreen({ history }) {
 
@@ -25,11 +25,11 @@ function ShippingScreen({ history }) {
 
     return (
         <FormContainer>
+            <CheckoutSteps step1 step2 />
             <h1>Shipping</h1>
-            <CheckoutSteps step1 step2/>
             <Form onSubmit={submitHandler}>
 
-                <Form.Group controlId='address'>
+                <Form.Group className='mt-3' controlId='address'>
                     <Form.Label>Address</Form.Label>
                     <Form.Control
                         required
@@ -41,7 +41,7 @@ function ShippingScreen({ history }) {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='city'>
+                <Form.Group className='mt-3' controlId='city'>
                     <Form.Label>City</Form.Label>
                     <Form.Control
                         required
@@ -53,7 +53,7 @@ function ShippingScreen({ history }) {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='postalCode'>
+                <Form.Group className='mt-3' controlId='postalCode'>
                     <Form.Label>Postal Code</Form.Label>
                     <Form.Control
                         required
@@ -65,7 +65,7 @@ function ShippingScreen({ history }) {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='country'>
+                <Form.Group className='mt-3' controlId='country'>
                     <Form.Label>Country</Form.Label>
                     <Form.Control
                         required
@@ -77,7 +77,7 @@ function ShippingScreen({ history }) {
                     </Form.Control>
                 </Form.Group>
 
-                <Button className='mt-3' type='submit' variant='primary'>
+                <Button className='mt-3'type='submit' variant='primary'>
                     Continue
                 </Button>
             </Form>
