@@ -7,7 +7,7 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' 
 import { userLoginReducers} from './reducers/userReducers';
 import {userRegisterReducers,userDetailsReducers,userUpdateProfileReducers} from './reducers/userReducers'
-import {orderCreateReducer,orderDetailsReducer} from './reducers/orderReducers'
+import {orderCreateReducer,orderDetailsReducer,orderPayReducer} from './reducers/orderReducers'
 
 const persistConfig = {
   key: 'root',
@@ -23,8 +23,8 @@ const reducer = combineReducers({
   userDetails:userDetailsReducers,
   orderCreate:orderCreateReducer,
   userUpdateProfile:userUpdateProfileReducers,
-  orderDetail:orderDetailsReducer
-  
+  orderDetail:orderDetailsReducer,
+  orderPay:orderPayReducer
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ?
