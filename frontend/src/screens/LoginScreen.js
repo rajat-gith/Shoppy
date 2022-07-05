@@ -20,6 +20,7 @@ function LoginScreen({ location, history }) {
 
     useEffect(() => {
         if (userInfo) {
+            console.log("Not desired")
             history.push(redirect)
         }
     }, [history, userInfo, redirect])
@@ -35,7 +36,7 @@ function LoginScreen({ location, history }) {
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>
-
+        
                 <Form.Group controlId='email'>
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control

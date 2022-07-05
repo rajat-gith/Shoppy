@@ -26,7 +26,7 @@ function Header() {
             <Nav className="me-auto">
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart m-1 p-1"></i>CART
+                  CART
                 </Nav.Link>
               </LinkContainer>
 
@@ -43,7 +43,7 @@ function Header() {
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <i className="fas fa-user"></i>Login
+                    Login
                   </Nav.Link>
                 </LinkContainer>
               )}
