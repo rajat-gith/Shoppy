@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+<<<<<<< HEAD
 import django_heroku
+=======
+>>>>>>> 35d3f8034ac6cbf8db5bb6998fc129f9d133986e
 from datetime import timedelta
 from pathlib import Path
 
@@ -107,9 +110,13 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [
             os.path.join(BASE_DIR, 'frontend/build')
             ],
+=======
+        'DIRS': [BASE_DIR, 'frontend/build'],
+>>>>>>> 35d3f8034ac6cbf8db5bb6998fc129f9d133986e
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -173,7 +180,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
+<<<<<<< HEAD
 
+=======
+STATICFILES_DIRS=[
+    BASE_DIR / 'static'
+]
+>>>>>>> 35d3f8034ac6cbf8db5bb6998fc129f9d133986e
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -184,6 +197,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+<<<<<<< HEAD
 django_heroku.settings(locals())
 
+=======
+>>>>>>> 35d3f8034ac6cbf8db5bb6998fc129f9d133986e
 
